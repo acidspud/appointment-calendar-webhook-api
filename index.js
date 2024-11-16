@@ -1,8 +1,10 @@
 const express = require('express')
-const app = express()
 
 const calendar =  require("./calendar")
 const utils =  require("./utils")
+
+const app = express()
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.send('hello world')
@@ -40,4 +42,7 @@ app.post('/webhook', async (req, res) => {
     res.json(result)
 })
 
-app.listen(3000)
+const port = 3000
+app.listen(port, () => {
+    console.log(`Webservice started and listening on port ${port}`)
+})
