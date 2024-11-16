@@ -31,6 +31,7 @@ app.post('/webhook', async (req, res) => {
 
     //combineDateAndTime(date, time)
     const result = {
+        "fulfillmentText": "Webservice Text response from webhook",
         "fulfillmentMessages": [{
             "text": {
                 "text": [
