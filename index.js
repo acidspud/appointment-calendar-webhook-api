@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
   res.send('hello world')
 })
 
+app.get('/healthz', (req, res) => {
+    res.send('Healthy!')
+  })
+
 app.get('/event', async (req, res) => {
 
     const eventStart = new Date()
@@ -15,6 +19,21 @@ app.get('/event', async (req, res) => {
 
     const result = await calendar.createCalendarEvent(eventStart, eventEnd, "DialoogflowAppointment")
     // res.render("")
+    res.send(result)
+})
+
+app.post('/webhook', async (req, res) => {
+    console.log(req)
+
+    const result = {
+        "fulfillmentMessages": [{
+            "text": {
+                "text": [
+                    "Webservice Text response from webhook"
+                ]
+            }
+        }]
+    }
     res.send(result)
 })
 
