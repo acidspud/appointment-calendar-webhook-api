@@ -30,7 +30,7 @@ const serviceAccount = {
     private_key,
 }
 
-console.log(serviceAccount)
+// console.log(serviceAccount)
 // Enter your calendar ID below and service account JSON below
 const calendarId = process.env.CALENDARID
 // const serviceAccount = {<Add your service account details here>}; // Starts with {"type": "service_account",...

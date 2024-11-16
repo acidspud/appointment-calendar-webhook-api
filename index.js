@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 
 const calendar =  require("./calendar")
+const utils =  require("./utils")
 
 app.get('/', (req, res) => {
   res.send('hello world')
@@ -23,8 +24,10 @@ app.get('/event', async (req, res) => {
 })
 
 app.post('/webhook', async (req, res) => {
-    console.log(req)
+    console.log(req.body)
 
+
+    //combineDateAndTime(date, time)
     const result = {
         "fulfillmentMessages": [{
             "text": {
@@ -34,7 +37,7 @@ app.post('/webhook', async (req, res) => {
             }
         }]
     }
-    res.send(result)
+    res.json(result)
 })
 
 app.listen(3000)
