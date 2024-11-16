@@ -29,15 +29,27 @@ app.post('/webhook', async (req, res) => {
     const { body } = req
     console.log(JSON.stringify(body, null, 2))
 
-    const contexts = body.queryResult.outputContexts
+    const { date, time } = body.queryResult.parameters
 
-    //combineDateAndTime(date, time)
+    const eventStart = utils.combineDateAndTime(date, time)
+
+    const eventEnd = new Date(eventStart)
+    eventEnd.setHours(eventStart.getHours() + 1)
+
+    let bookEvent;
+    try {
+        const calResult = await calendar.createCalendarEvent(eventStart, eventEnd, "DialogflowAppointment")
+        bookEvent = `Booked for ${eventStart}`
+    }
+    catch (error){
+        bookEvent = "Already booked, choose another date. here is some suggestions:"
+    }
     const result = {
         "fulfillmentText": "Webservice Text response from webhook",
         "fulfillmentMessages": [{
             "text": {
                 "text": [
-                    "Webservice Text response from webhook"
+                    bookEvent
                 ]
             }
         }]
