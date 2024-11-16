@@ -31,7 +31,7 @@ app.post('/webhook', async (req, res) => {
 
     const { date, time } = body.queryResult.parameters
 
-    const eventStart = utils.combineDateAndTime(date, time)
+    const eventStart = utils.combineDateAndTime(new Date(date), new Date(time))
 
     const eventEnd = new Date(eventStart)
     eventEnd.setHours(eventStart.getHours() + 1)
