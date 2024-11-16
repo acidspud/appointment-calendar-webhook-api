@@ -26,8 +26,10 @@ app.get('/event', async (req, res) => {
 })
 
 app.post('/webhook', async (req, res) => {
+    const { body } = req
+    console.log(JSON.stringify(body, null, 2))
 
-    console.log(JSON.stringify(req.body, null, 2))
+    const contexts = body.result.contexts
 
     //combineDateAndTime(date, time)
     const result = {
@@ -38,7 +40,8 @@ app.post('/webhook', async (req, res) => {
                     "Webservice Text response from webhook"
                 ]
             }
-        }]
+        }],
+        "outputContexts": contexts
     }
     res.json(result)
 })
