@@ -29,7 +29,7 @@ app.post('/webhook', async (req, res) => {
     const { body } = req
     console.log(JSON.stringify(body, null, 2))
 
-    const contexts = body.result.contexts
+    const contexts = body.queryResult.outputContexts
 
     //combineDateAndTime(date, time)
     const result = {
@@ -43,7 +43,7 @@ app.post('/webhook', async (req, res) => {
         }],
         "outputContexts": contexts
     }
-    res.json(result)
+    res.json(body)
 })
 
 const port = 3000
