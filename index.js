@@ -26,8 +26,8 @@ app.get('/event', async (req, res) => {
 })
 
 app.post('/webhook', async (req, res) => {
-    console.log(req.body)
 
+    console.log(JSON.stringify(req.body, null, 2))
 
     //combineDateAndTime(date, time)
     const result = {
