@@ -17,14 +17,17 @@
 'use strict';
 
 require('dotenv').config()
-const functions = require('firebase-functions');
+//const functions = require('firebase-functions');
 const {google} = require('googleapis');
 const calendar = google.calendar('v3');
 
 // const {WebhookClient} = require('dialogflow-fulfillment');
+
+
+const private_key = Buffer.from(process.env.PRIVATEKEY , 'base64').toString('ascii');
 const serviceAccount = {
     client_email: process.env.CLIENTEMAIL,
-    private_key: process.env.PRIVATEKEY,
+    private_key,
 }
 
 console.log(serviceAccount)
