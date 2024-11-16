@@ -40,10 +40,10 @@ app.post('/webhook', async (req, res) => {
                     "Webservice Text response from webhook"
                 ]
             }
-        }],
-        "outputContexts": contexts
+        }]
+//        "outputContexts": contexts
     }
-    res.json(body)
+    res.json(result)
 })
 
 const port = 3000
