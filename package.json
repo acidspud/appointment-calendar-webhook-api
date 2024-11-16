@@ -1,0 +1,17 @@
+{
+  "name": "appointment-calendar-webhook-api",
+  "version": "1.0.0",
+  "description": "google dialogflow webhook api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "firebase-functions": "^6.1.0",
+    "googleapis": "^144.0.0"
+  }
+}
