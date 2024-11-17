@@ -46,7 +46,7 @@ app.post('/webhook', async (req, res) => {
         bookEvent = "Already booked, choose another date. here is some suggestions:"
     }
     const result = {
-        "fulfillmentText": "Webservice Text response from webhook",
+        "fulfillmentText": bookEvent,
         "fulfillmentMessages": [{
             "text": {
                 "text": [
