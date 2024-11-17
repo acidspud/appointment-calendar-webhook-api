@@ -10,6 +10,25 @@ const combineDateAndTime = (date, time) => {
     return new Date(`${year}-${month}-${day}T${hours}:${minutes}:00`);
 };
 
+const toDisplayDate = (date) =>  {
+
+    const formattedDate = date.toLocaleString('en-ZA', {
+        timeZone: 'Africa/Johannesburg', // Specify South Africa time zone
+        // timeZoneName: 'short' // Includes the GMT offset
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      })
+
+      //return formattedDate.replace(',', ' on')
+      return formattedDate
+}
+
 module.exports = {
-    combineDateAndTime
+    combineDateAndTime,
+    toDisplayDate
 }

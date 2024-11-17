@@ -40,7 +40,7 @@ app.post('/webhook', async (req, res) => {
     try {
         const calResult = await calendar.createCalendarEvent(eventStart, eventEnd, "DialogflowAppointment")
 
-        bookEvent = `Booked for ${eventStart.toDateString()}`
+        bookEvent = `All set, your appointment is booked for ${utils.toDisplayDate(eventStart)}`
     }
     catch (error){
         bookEvent = "Already booked, choose another date. here is some suggestions:"
